@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
 
 :root {
   --bg-color: #060b13;
@@ -15,7 +15,8 @@
   --code-bg: #070e1b;
   --stat-bg: rgba(11, 19, 32, 0.7);
   --shadow-glow: 0 0 35px rgba(0, 242, 254, 0.15);
-  --font-main: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-main: 'Pacifico', cursive, 'Inter', system-ui, sans-serif;
+  --font-fancy: 'Pacifico', cursive;
   --font-code: 'Fira Code', monospace;
   --radius-lg: 24px;
   --radius-md: 14px;
