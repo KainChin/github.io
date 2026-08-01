@@ -41,6 +41,19 @@ body {
   justify-content: center;
   padding: 2rem 1rem;
   line-height: 1.6;
+  transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+body.light-theme {
+  --bg-color: #f1f5f9;
+  --card-bg: #ffffff;
+  --card-border: rgba(0, 180, 216, 0.25);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --code-bg: #1e293b;
+  --stat-bg: rgba(255, 255, 255, 0.9);
+  --shadow-glow: 0 10px 30px rgba(0, 180, 216, 0.15);
 }
 
 .container {
