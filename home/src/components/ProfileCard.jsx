@@ -35,3 +35,5 @@ function ProfileCard() {
     </div>
   );
 }
+
+window.ProfileCard = ProfileCard;

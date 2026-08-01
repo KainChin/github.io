@@ -67,3 +67,5 @@ function Stats() {
     </section>
   );
 }
+
+window.Stats = Stats;

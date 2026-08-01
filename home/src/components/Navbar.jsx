@@ -72,3 +72,5 @@ function Navbar({ isDarkMode, toggleTheme }) {
     </header>
   );
 }
+
+window.Navbar = Navbar;
