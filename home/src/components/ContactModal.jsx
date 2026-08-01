@@ -102,8 +102,29 @@ function ContactModal({ isOpen, onClose, t }) {
 
               <div className="form-group">
                 <label>{t.modal.fileLabel}</label>
-                <input type="file" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" onChange={handleFileChange} />
-                {selectedFile && <span style={{ fontSize: '0.8rem', color: '#00f2fe', marginTop: '0.2rem' }}>📎 {selectedFile.name}</span>}
+                <div className="file-upload-wrapper">
+                  <input
+                    type="file"
+                    id="custom-file-input"
+                    className="file-upload-input"
+                    name="attachment"
+                    accept=".pdf,.doc,.docx,.png,.jpg,.jpeg"
+                    onChange={handleFileChange}
+                  />
+                  {!selectedFile ? (
+                    <label htmlFor="custom-file-input" className="custom-file-label">
+                      <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"></path></svg>
+                      <span>Choose file (PDF, Word, Image)...</span>
+                    </label>
+                  ) : (
+                    <div className="file-selected-badge">
+                      <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>
+                        📄 {selectedFile.name}
+                      </span>
+                      <button type="button" className="remove-file-btn" onClick={() => setSelectedFile(null)} title="Remove file">&times;</button>
+                    </div>
+                  )}
+                </div>
               </div>
 
               <div className="form-group full-width">
