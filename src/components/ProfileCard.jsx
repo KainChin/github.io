@@ -5,7 +5,7 @@ function ProfileCard({ t }) {
     <div className="hero-right">
       <div className="profile-card">
         <div className="profile-image-container">
-          <img src="../assets/images/avatar.png" alt="Khanh Trinh Profile Avatar" />
+          <img src="./assets/images/avatar.png" alt="Khanh Trinh Profile Avatar" />
           <div className="status-badge">
             <span className="status-dot"></span>
             {status}
