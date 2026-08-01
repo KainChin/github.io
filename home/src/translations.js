@@ -29,9 +29,10 @@ const translations = {
       email: "Your Email",
       subject: "Subject",
       message: "Message",
+      fileLabel: "Attach File (PDF, Word, Image)",
       send: "Send Email",
       sending: "Sending...",
-      success: "Message sent successfully!"
+      success: "Message & file sent successfully!"
     }
   },
   vi: {
@@ -64,9 +65,10 @@ const translations = {
       email: "Địa chỉ Email",
       subject: "Tiêu đề tin nhắn",
       message: "Nội dung tin nhắn",
+      fileLabel: "Đính kèm tệp (PDF, Word, Hình ảnh)",
       send: "Gửi Email",
       sending: "Đang gửi...",
-      success: "Đã gửi email thành công!"
+      success: "Đã gửi email & tệp đính kèm thành công!"
     }
   },
   ja: {
@@ -99,6 +101,7 @@ const translations = {
       email: "メールアドレス",
       subject: "件名",
       message: "メッセージ内容",
+      fileLabel: "ファイル添付 (PDF, Word, 画像)",
       send: "送信する",
       sending: "送信中...",
       success: "送信が完了しました！"

@@ -2,9 +2,9 @@ const { useState } = React;
 
 function ContactModal({ isOpen, onClose, t }) {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+  const [selectedFile, setSelectedFile] = useState(null);
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
-  const [errorMsg, setErrorMsg] = useState('');
 
   if (!isOpen) return null;
 
@@ -12,41 +12,52 @@ function ContactModal({ isOpen, onClose, t }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleFileChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      setSelectedFile(e.target.files[0]);
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
-    setErrorMsg('');
 
     try {
+      const data = new FormData();
+      data.append('name', formData.name);
+      data.append('email', formData.email);
+      data.append('_subject', formData.subject || 'Portfolio Contact Message');
+      data.append('message', formData.message);
+      data.append('_captcha', 'false');
+
+      if (selectedFile) {
+        data.append('attachment', selectedFile);
+      }
+
       const response = await fetch('https://formsubmit.co/ajax/khanhtrinh882004@gmail.com', {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
           'Accept': 'application/json'
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          _subject: formData.subject || 'Portfolio Contact Message',
-          message: formData.message
-        })
+        body: data
       });
 
       if (response.ok) {
         setIsSending(false);
         setIsSent(true);
         setFormData({ name: '', email: '', subject: '', message: '' });
+        setSelectedFile(null);
         setTimeout(() => {
           setIsSent(false);
           onClose();
         }, 2000);
       } else {
-        throw new Error('Failed to send');
+        throw new Error('Send failed');
       }
     } catch (err) {
-      console.warn('FormSubmit AJAX error, fallback to mailto:', err);
+      console.warn('Form submission fallback:', err);
       setIsSending(false);
-      const mailtoUrl = `mailto:khanhtrinh882004@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Contact')}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
+      const mailtoUrl = `mailto:khanhtrinh882004@gmail.com?subject=${encodeURIComponent(formData.subject || 'Contact')}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
       window.open(mailtoUrl, '_blank');
       setIsSent(true);
       setTimeout(() => {
@@ -90,7 +101,13 @@ function ContactModal({ isOpen, onClose, t }) {
 
             <div className="form-group">
               <label>{t.modal.message}</label>
-              <textarea name="message" rows="4" required value={formData.message} onChange={handleChange} placeholder="Hello Khanh Trinh..."></textarea>
+              <textarea name="message" rows="3" required value={formData.message} onChange={handleChange} placeholder="Hello Khanh Trinh..."></textarea>
+            </div>
+
+            <div className="form-group">
+              <label>{t.modal.fileLabel}</label>
+              <input type="file" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" onChange={handleFileChange} />
+              {selectedFile && <span style={{ fontSize: '0.8rem', color: '#00f2fe', marginTop: '0.2rem' }}>📎 {selectedFile.name}</span>}
             </div>
 
             <div className="form-actions">
