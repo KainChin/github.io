@@ -15,8 +15,8 @@
   --code-bg: #070e1b;
   --stat-bg: rgba(11, 19, 32, 0.7);
   --shadow-glow: 0 0 35px rgba(0, 242, 254, 0.15);
-  --font-main: 'Pacifico', cursive, 'Inter', system-ui, sans-serif;
-  --font-fancy: 'Pacifico', cursive;
+  --font-main: 'Times New Roman', Times, serif;
+  --font-fancy: 'Times New Roman', Times, serif;
   --font-code: 'Fira Code', monospace;
   --radius-lg: 24px;
   --radius-md: 14px;
