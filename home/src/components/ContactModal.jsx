@@ -4,6 +4,7 @@ function ContactModal({ isOpen, onClose, t }) {
   const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
+  const [errorMsg, setErrorMsg] = useState('');
 
   if (!isOpen) return null;
 
@@ -11,21 +12,48 @@ function ContactModal({ isOpen, onClose, t }) {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
+    setErrorMsg('');
 
-    const mailtoUrl = `mailto:khanhtrinh882004@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Contact')}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\nMessage:\n${formData.message}`)}`;
-    window.location.href = mailtoUrl;
+    try {
+      const response = await fetch('https://formsubmit.co/ajax/khanhtrinh882004@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          _subject: formData.subject || 'Portfolio Contact Message',
+          message: formData.message
+        })
+      });
 
-    setTimeout(() => {
+      if (response.ok) {
+        setIsSending(false);
+        setIsSent(true);
+        setFormData({ name: '', email: '', subject: '', message: '' });
+        setTimeout(() => {
+          setIsSent(false);
+          onClose();
+        }, 2000);
+      } else {
+        throw new Error('Failed to send');
+      }
+    } catch (err) {
+      console.warn('FormSubmit AJAX error, fallback to mailto:', err);
       setIsSending(false);
+      const mailtoUrl = `mailto:khanhtrinh882004@gmail.com?subject=${encodeURIComponent(formData.subject || 'Portfolio Contact')}&body=${encodeURIComponent(`From: ${formData.name} (${formData.email})\n\n${formData.message}`)}`;
+      window.open(mailtoUrl, '_blank');
       setIsSent(true);
       setTimeout(() => {
         setIsSent(false);
         onClose();
-      }, 1500);
-    }, 500);
+      }, 2000);
+    }
   };
 
   return (
@@ -40,7 +68,7 @@ function ContactModal({ isOpen, onClose, t }) {
         </div>
 
         {isSent ? (
-          <div style={{ textDecoration: 'none', color: '#10b981', textAlign: 'center', padding: '2rem 0', fontWeight: 'bold' }}>
+          <div style={{ color: '#10b981', textAlign: 'center', padding: '2.5rem 0', fontWeight: 'bold', fontSize: '1.1rem' }}>
             ✓ {t.modal.success}
           </div>
         ) : (
