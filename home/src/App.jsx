@@ -5,6 +5,7 @@ function App() {
     const savedLang = localStorage.getItem('lang');
     return savedLang || 'en';
   });
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const setLang = (newLang) => {
     setLangState(newLang);
@@ -17,10 +18,11 @@ function App() {
     <div className="container">
       <Navbar lang={lang} setLang={setLang} t={t} />
       <main className="hero">
-        <Hero t={t} />
+        <Hero t={t} onOpenContact={() => setIsContactOpen(true)} />
         <ProfileCard t={t} />
       </main>
       <Stats t={t} />
+      <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} t={t} />
     </div>
   );
 }

@@ -22,6 +22,16 @@ const translations = {
       experience: "Years Experience",
       stars: "GitHub Stars",
       followers: "GitHub Followers"
+    },
+    modal: {
+      title: "Send Me a Message",
+      name: "Your Name",
+      email: "Your Email",
+      subject: "Subject",
+      message: "Message",
+      send: "Send Email",
+      sending: "Sending...",
+      success: "Message sent successfully!"
     }
   },
   vi: {
@@ -47,6 +57,16 @@ const translations = {
       experience: "Năm kinh nghiệm",
       stars: "Lượt Star GitHub",
       followers: "Người theo dõi GitHub"
+    },
+    modal: {
+      title: "Gửi Tin Nhắn Cho Tôi",
+      name: "Họ và Tên",
+      email: "Địa chỉ Email",
+      subject: "Tiêu đề tin nhắn",
+      message: "Nội dung tin nhắn",
+      send: "Gửi Email",
+      sending: "Đang gửi...",
+      success: "Đã gửi email thành công!"
     }
   },
   ja: {
@@ -72,6 +92,16 @@ const translations = {
       experience: "開発経験年数",
       stars: "GitHubスター数",
       followers: "GitHubフォロワー数"
+    },
+    modal: {
+      title: "メッセージを送信",
+      name: "お名前",
+      email: "メールアドレス",
+      subject: "件名",
+      message: "メッセージ内容",
+      send: "送信する",
+      sending: "送信中...",
+      success: "送信が完了しました！"
     }
   }
 };
