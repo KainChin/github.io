@@ -84,30 +84,32 @@ function ContactModal({ isOpen, onClose, t }) {
           </div>
         ) : (
           <form className="contact-form" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <label>{t.modal.name}</label>
-              <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="Nguyen Van A" />
-            </div>
+            <div className="form-grid">
+              <div className="form-group">
+                <label>{t.modal.name}</label>
+                <input type="text" name="name" required value={formData.name} onChange={handleChange} placeholder="Nguyen Van A" />
+              </div>
 
-            <div className="form-group">
-              <label>{t.modal.email}</label>
-              <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="example@gmail.com" />
-            </div>
+              <div className="form-group">
+                <label>{t.modal.email}</label>
+                <input type="email" name="email" required value={formData.email} onChange={handleChange} placeholder="example@gmail.com" />
+              </div>
 
-            <div className="form-group">
-              <label>{t.modal.subject}</label>
-              <input type="text" name="subject" required value={formData.subject} onChange={handleChange} placeholder="Job offer / Cooperation" />
-            </div>
+              <div className="form-group">
+                <label>{t.modal.subject}</label>
+                <input type="text" name="subject" required value={formData.subject} onChange={handleChange} placeholder="Job offer / Cooperation" />
+              </div>
 
-            <div className="form-group">
-              <label>{t.modal.message}</label>
-              <textarea name="message" rows="3" required value={formData.message} onChange={handleChange} placeholder="Hello Khanh Trinh..."></textarea>
-            </div>
+              <div className="form-group">
+                <label>{t.modal.fileLabel}</label>
+                <input type="file" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" onChange={handleFileChange} />
+                {selectedFile && <span style={{ fontSize: '0.8rem', color: '#00f2fe', marginTop: '0.2rem' }}>📎 {selectedFile.name}</span>}
+              </div>
 
-            <div className="form-group">
-              <label>{t.modal.fileLabel}</label>
-              <input type="file" name="attachment" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" onChange={handleFileChange} />
-              {selectedFile && <span style={{ fontSize: '0.8rem', color: '#00f2fe', marginTop: '0.2rem' }}>📎 {selectedFile.name}</span>}
+              <div className="form-group full-width">
+                <label>{t.modal.message}</label>
+                <textarea name="message" rows="3" required value={formData.message} onChange={handleChange} placeholder="Hello Khanh Trinh..."></textarea>
+              </div>
             </div>
 
             <div className="form-actions">
