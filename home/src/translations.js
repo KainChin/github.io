@@ -17,7 +17,7 @@ const translations = {
       goal: "Make ideas come true"
     },
     stats: {
-      projects: "Projects Completed",
+      projects: "Pinned Projects",
       experience: "Years Experience",
       stars: "GitHub Stars",
       followers: "GitHub Followers"
@@ -41,7 +41,7 @@ const translations = {
       goal: "Biến ý tưởng thành hiện thực"
     },
     stats: {
-      projects: "Dự án đã hoàn thành",
+      projects: "Dự án đã Ghim",
       experience: "Năm kinh nghiệm",
       stars: "Lượt Star GitHub",
       followers: "Người theo dõi GitHub"
@@ -65,7 +65,7 @@ const translations = {
       goal: "アイデアを形にする"
     },
     stats: {
-      projects: "完了プロジェクト数",
+      projects: "ピン留めプロジェクト数",
       experience: "開発経験年数",
       stars: "GitHubスター数",
       followers: "GitHubフォロワー数"

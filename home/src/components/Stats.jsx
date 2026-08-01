@@ -37,7 +37,7 @@ function StatItem({ icon, targetValue, suffix, label }) {
 
 function Stats({ t }) {
   const [githubData, setGithubData] = useState({
-    publicRepos: 15,
+    pinnedRepos: 5,
     yearsExperience: 2,
     totalStars: 5,
     followers: 3
@@ -60,8 +60,22 @@ function Stats({ t }) {
             starsCount = reposData.reduce((acc, repo) => acc + (repo.stargazers_count || 0), 0);
           }
 
+          let pinnedCount = 5;
+          try {
+            const proxyRes = await fetch('https://api.allorigins.win/get?url=' + encodeURIComponent('https://github.com/KainChin'));
+            if (proxyRes.ok) {
+              const proxyData = await proxyRes.json();
+              const matches = [...proxyData.contents.matchAll(/class="repo"[^>]*>([^<]+)</g)];
+              if (matches && matches.length > 0) {
+                pinnedCount = matches.length;
+              }
+            }
+          } catch (e) {
+            console.warn("Using default pinned repos count:", e);
+          }
+
           setGithubData({
-            publicRepos: userData.public_repos || 15,
+            pinnedRepos: pinnedCount,
             yearsExperience: calculatedYears,
             totalStars: starsCount,
             followers: userData.followers || 3
@@ -77,7 +91,7 @@ function Stats({ t }) {
 
   const statsData = [
     {
-      targetValue: githubData.publicRepos,
+      targetValue: githubData.pinnedRepos,
       suffix: '+',
       label: t.stats.projects,
       icon: <svg width="22" height="22" fill="none" stroke="currentColor" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
