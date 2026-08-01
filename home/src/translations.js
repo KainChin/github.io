@@ -1,5 +1,6 @@
 const translations = {
   en: {
+    name: { first: "KHANH", last: "TRINH" },
     nav: { home: "Home", about: "About", skills: "Skills", projects: "Projects", contact: "Contact" },
     hero: {
       greeting: "Hi, I'm",
@@ -24,6 +25,7 @@ const translations = {
     }
   },
   vi: {
+    name: { first: "KHÁNH", last: "TRÌNH" },
     nav: { home: "Trang chủ", about: "Giới thiệu", skills: "Kỹ năng", projects: "Dự án", contact: "Liên hệ" },
     hero: {
       greeting: "Xin chào, tôi là",
@@ -48,6 +50,7 @@ const translations = {
     }
   },
   ja: {
+    name: { first: "カイン", last: "チン" },
     nav: { home: "ホーム", about: "概要", skills: "スキル", projects: "プロジェクト", contact: "お問い合わせ" },
     hero: {
       greeting: "初めまして、",

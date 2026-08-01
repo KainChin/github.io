@@ -3,7 +3,7 @@ function Hero({ t }) {
     <div className="hero-left">
       <div className="greeting">{t.hero.greeting}</div>
       <h1 className="name-title">
-        <span className="first-name">KHÁNH</span> <span className="last-name">TRÌNH</span>
+        <span className="first-name">{t.name.first}</span> <span className="last-name">{t.name.last}</span>
       </h1>
       <div className="accent-line"></div>
       <div className="role-title">{t.hero.role}</div>

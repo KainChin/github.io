@@ -15,6 +15,7 @@
   align-items: center;
   gap: 1.2rem;
   position: relative;
+  min-height: 60px;
 }
 
 .stat-item:not(:last-child)::after {

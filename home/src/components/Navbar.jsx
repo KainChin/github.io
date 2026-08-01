@@ -14,7 +14,7 @@ function Navbar({ lang, setLang, t }) {
   return (
     <header className="navbar">
       <div className="nav-brand">
-        <span className="code-tag">&lt;/&gt;</span> KHÁNH TRÌNH
+        <span className="code-tag">&lt;/&gt;</span> {t.name.first} {t.name.last}
       </div>
       <nav>
         <ul className="nav-menu">

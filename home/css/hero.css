@@ -9,13 +9,16 @@
 .hero-left {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
+  min-height: 440px;
+  justify-content: center;
 }
 
 .greeting {
   font-size: 1.6rem;
   color: var(--text-primary);
   font-weight: 500;
+  min-height: 2.2rem;
 }
 
 .name-title {
@@ -23,6 +26,7 @@
   font-weight: 800;
   line-height: 1.1;
   letter-spacing: -1px;
+  min-height: 4.6rem;
 }
 
 .name-title .first-name {
@@ -48,12 +52,14 @@
   font-size: 1.15rem;
   color: var(--text-secondary);
   font-weight: 600;
+  min-height: 1.8rem;
 }
 
 .description {
   color: var(--text-secondary);
   font-size: 1rem;
   max-width: 500px;
+  min-height: 3.2rem;
 }
 
 .hero-buttons {
