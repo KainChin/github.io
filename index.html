@@ -2,11 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=home/index.html">
-  <title>Khanh Trinh - Software Developer</title>
-  <script>window.location.href = "home/index.html";</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Khanh Trinh - Software Developer Portfolio (React)</title>
+  <meta name="description" content="Personal portfolio of Khanh Trinh built with React. Software Developer, Tech Enthusiast, and Lifelong Learner.">
+  
+  <!-- CSS Design System Modules -->
+  <link rel="stylesheet" href="home/css/variables.css">
+  <link rel="stylesheet" href="home/css/navbar.css">
+  <link rel="stylesheet" href="home/css/hero.css">
+  <link rel="stylesheet" href="home/css/profile-card.css">
+  <link rel="stylesheet" href="home/css/stats.css">
+
+  <!-- React 18 & Babel Standalone CDNs -->
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </head>
 <body>
-  <p>If you are not redirected automatically, follow this <a href="home/index.html">link to home</a>.</p>
+  <!-- React Mount Point -->
+  <div id="root"></div>
+
+  <!-- Load Translations Dictionary -->
+  <script src="home/src/translations.js"></script>
+
+  <!-- Load Modular React JSX Components -->
+  <script type="text/babel" src="home/src/components/Navbar.jsx"></script>
+  <script type="text/babel" src="home/src/components/Hero.jsx"></script>
+  <script type="text/babel" src="home/src/components/ProfileCard.jsx"></script>
+  <script type="text/babel" src="home/src/components/Stats.jsx"></script>
+  <script type="text/babel" src="home/src/App.jsx"></script>
 </body>
 </html>
