@@ -1,27 +1,27 @@
-function Hero() {
+function Hero({ t }) {
   return (
     <div className="hero-left">
-      <div className="greeting">Hi, I'm</div>
+      <div className="greeting">{t.hero.greeting}</div>
       <h1 className="name-title">
         <span className="first-name">KHANH</span> <span className="last-name">TRINH</span>
       </h1>
       <div className="accent-line"></div>
-      <div className="role-title">Software Developer | Tech Enthusiast | Lifelong Learner</div>
+      <div className="role-title">{t.hero.role}</div>
       <p className="description">
-        I build web applications and explore new technologies.<br />
-        Passionate about clean code, UI/UX, and AI.
+        {t.hero.desc1}<br />
+        {t.hero.desc2}
       </p>
 
       <div className="hero-buttons">
         <a href="#projects" className="btn btn-primary">
-          View Projects
+          {t.hero.viewProjects}
           <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <line x1="7" y1="17" x2="17" y2="7"></line>
             <polyline points="7 7 17 7 17 17"></polyline>
           </svg>
         </a>
         <a href="#" className="btn btn-outline">
-          Download CV
+          {t.hero.downloadCv}
           <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
@@ -31,7 +31,7 @@ function Hero() {
       </div>
 
       <div className="social-section">
-        <span className="social-title">Connect with me</span>
+        <span className="social-title">{t.hero.connect}</span>
         <div className="social-links">
           <a href="https://github.com/KainChin" target="_blank" rel="noopener noreferrer" className="social-card" aria-label="GitHub">
             <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24">

@@ -6,6 +6,16 @@ function App() {
     return saved ? saved === 'dark' : true;
   });
 
+  const [lang, setLangState] = useState(() => {
+    const savedLang = localStorage.getItem('lang');
+    return savedLang || 'en';
+  });
+
+  const setLang = (newLang) => {
+    setLangState(newLang);
+    localStorage.setItem('lang', newLang);
+  };
+
   useEffect(() => {
     document.body.classList.toggle('light-theme', !isDarkMode);
     localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
@@ -15,14 +25,16 @@ function App() {
     setIsDarkMode((prev) => !prev);
   };
 
+  const t = window.translations[lang] || window.translations.en;
+
   return (
     <div className="container">
-      <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
+      <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} lang={lang} setLang={setLang} t={t} />
       <main className="hero">
-        <Hero />
-        <ProfileCard />
+        <Hero t={t} />
+        <ProfileCard t={t} />
       </main>
-      <Stats />
+      <Stats t={t} />
     </div>
   );
 }

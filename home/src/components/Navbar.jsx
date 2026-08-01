@@ -1,14 +1,14 @@
 const { useState } = React;
 
-function Navbar({ isDarkMode, toggleTheme }) {
+function Navbar({ isDarkMode, toggleTheme, lang, setLang, t }) {
   const [activeNav, setActiveNav] = useState('home');
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'skills', label: 'Skills' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: t.nav.home },
+    { id: 'about', label: t.nav.about },
+    { id: 'skills', label: t.nav.skills },
+    { id: 'projects', label: t.nav.projects },
+    { id: 'contact', label: t.nav.contact },
   ];
 
   return (
@@ -32,6 +32,11 @@ function Navbar({ isDarkMode, toggleTheme }) {
         </ul>
       </nav>
       <div className="nav-actions">
+        <div className="lang-selector">
+          <button className={`lang-btn ${lang === 'en' ? 'active' : ''}`} onClick={() => setLang('en')}>EN</button>
+          <button className={`lang-btn ${lang === 'vi' ? 'active' : ''}`} onClick={() => setLang('vi')}>VI</button>
+          <button className={`lang-btn ${lang === 'ja' ? 'active' : ''}`} onClick={() => setLang('ja')}>JA</button>
+        </div>
         <button
           onClick={toggleTheme}
           className="icon-btn"
