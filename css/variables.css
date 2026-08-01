@@ -42,12 +42,20 @@ body {
   padding: 2rem 1rem;
   line-height: 1.6;
   transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
 }
-
-
 
 .container {
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 1rem 0.5rem;
+  }
+  .container {
+    padding: 0 0.8rem;
+  }
 }
